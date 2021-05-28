@@ -4,8 +4,9 @@
 1. Intsall Flask.
 2. Open this folder with Command Prompt.
 3. Create Development Server.
+
 ![Screenshot (126)](https://user-images.githubusercontent.com/49128498/119982965-26872200-bfdd-11eb-9bd4-bca49750803b.png)
-5. Copy this url and Paste it in any Browser.
+4. Copy this url and Paste it in any Browser.
 
 Project Image :
 ![Screenshot (113)](https://user-images.githubusercontent.com/49128498/119983100-56362a00-bfdd-11eb-8d3d-c5ff30d89550.png)
