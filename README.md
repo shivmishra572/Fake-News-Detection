@@ -22,6 +22,6 @@ Project Image :
 ![Screenshot (121)](https://user-images.githubusercontent.com/49128498/119983192-72d26200-bfdd-11eb-8cb3-65e0a8014523.png)
 
 
-## Any suggestions are welcomed.
+## Any suggestions are welcomed
 
-#Thank you
+# Thank you
