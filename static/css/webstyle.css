@@ -1,0 +1,159 @@
+html{
+    scroll-behavior:smooth;
+}
+.mynavbg{
+    background: linear-gradient(90deg, rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+}
+.mylogo{
+    font-family: 'New Tegomin', serif;
+    text-transform: uppercase;
+}
+.nav-item{
+    font-weight:500;   
+}
+
+.mytextbox h1{
+    color:white;
+    letter-spacing: 1.5px;
+    font-size: 70px;
+    font-family: 'Playball', cursive;
+    background: -webkit-linear-gradient(#eee, rgb(119, 118, 118));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.mytextbox p{
+    color:gainsboro;
+    letter-spacing: 1.5px;
+    font-family: 'Kaushan Script', cursive;
+}
+@media only screen and (max-width: 900px) {
+    .mytextbox h1{
+        font-size: 40px;
+    }
+}
+.SectionHeading{
+    font-family: 'New Tegomin', serif;
+    text-transform: uppercase;
+    color:#47a59d; 
+    margin-bottom:20px;
+}
+.SectionHeading h1{
+    font-size: 50px;
+}
+.aboutText{
+    /* color: #4FC1B7; */
+    margin-top: -8px;
+    padding-top:40px;
+    padding-bottom:30px;
+    background-color:lightgrey ;
+    letter-spacing: -3px;
+    font-family:"Cutive Mono", monospace;
+    font-size: 22px;
+    /* font-weight: bold; */
+}
+@media only screen and (max-width: 900px) {
+    .aboutText{
+        font-size: 17px;
+    }
+}
+.mytextarea {
+    width: 80%;
+    height: 170px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 16px;
+    resize: none;
+  }
+  .mytextarea::placeholder {
+      font-family:"Cutive Mono", monospace;
+      font-size: 20px;
+  }
+.submitBtn{
+    cursor: pointer;
+    font-size:20px;
+    width:80%;
+    color: white;
+    padding:10px 40px 10px 40px;
+    text-transform: uppercase;
+    border:none;
+    font-family:monospace;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+}
+.submitBtn:hover{
+    /* transform: scale(1.1); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all ease-out width 7s; 
+   
+}
+
+  .teambg{
+      background-color: rgb(211, 211, 211);
+      background-image: linear-gradient(to right top, #858585, #a0a0a0, #bdbbbc, #dad8d8, #f8f5f5);
+  }
+  .card-deck .card{
+      background-color: transparent;
+  }
+  .teambg .card-deck .card .card-img-top{
+    width:55%;
+    border-radius: 50%;
+    height:220px;
+    border:10px solid lightgray;
+    filter: drop-shadow(0px 10px 3px rgb(53, 52, 52));
+    }
+  .teambg .card-deck .card .card-img-top:hover{
+      transform: scale(1.1);
+      transition: all ease 500ms; 
+      cursor: pointer;    
+  }
+.teambg .card-deck .card .card-body h5{
+    font-family: 'Great Vibes',cursive;
+    font-size:33px;
+    letter-spacing:1px;
+    font-weight: bolder;
+}  
+.SectionHeading h2{
+    text-transform: capitalize;
+    margin-top: 20px;
+    color:black;
+    font-family: 'Dela Gothic One';
+}
+.tipsbg .card-deck .card{
+    border:2px solid lightgray;
+    background-color:rgba(12, 129, 129, 0.7);
+    box-shadow: 10px 10px 8px #adadad;
+}
+.tipsbg .card-deck .card .card-body{
+    background-color: white;
+    padding:17px;
+}
+.tipsbg .card-deck .card .card-img-top{
+    height: 250px;
+}
+.tipsbg .card-deck .card .card-body h5{
+    font-family: 'Teko', sans-serif;
+    font-size:40px;
+    font-weight: bolder;
+    color: #2d6863;
+    margin-bottom: 0;
+}
+.tipsbg .card-deck .card .card-body p{
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+}
+.tipsbg .card-deck .card:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    transition: all ease 500ms; 
+}
+footer h2{
+    font-family: 'Libre Baskerville',serif;
+    font-size: 40px;
+    margin-bottom:30px;
+}
+footer{
+    font-family: 'Libre Baskerville',serif;
+}

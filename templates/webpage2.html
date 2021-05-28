@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeBox</title>
+    
+    <!-- <link rel="stylesheet" href="static/css/webstyle.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/webstyle.css') }}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Abel&family=Teko&family=Dela+Gothic+One&family=Great+Vibes&family=New+Tegomin&family=Playball&family=Cutive+Mono&family=Train+One&family=Kaushan+Script&display=swap"
+        rel="stylesheet">
+
+</head>
+<style>
+    body {
+        background: whitesmoke;
+    }
+
+    .mywelcome-img {
+        background-image: url("static/images/img2.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-top: 50px;
+        width: 100%;
+        height: 80vh;
+        /* clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 91%, 84% 93%, 50% 100%, 20% 95%, 0 100%, 0% 35%, 0 0); */
+    }
+
+    .aboutText {
+        /* color: #4FC1B7; */
+        background-image: url("static/images/img6.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        /* height: 65vh; */
+    }
+</style>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top mynavbg text-center">
+        <a class="navbar-brand mylogo ml-4" href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> FakeBox</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mr-4">
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="#aboutUs"><i class="fa fa-ravelry" aria-hidden="true"></i> About
+                        us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="#search"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="#ourteam"><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Our
+                        Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="#tips"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Some
+                        Tips</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-3" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid mywelcome-img text-center" id=home>
+        <div class="mytextbox py-5">
+            <h1>FakeBox-Where Fact wins over Fake!</h1>
+            <p>Before you share a story, take some time to find out if it is real...</p>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 mt-5" id="aboutUs">
+
+        <div class="aboutText">
+            <div class="SectionHeading mt-3 text-center">
+                <h1>About Us</h1>
+            </div>
+            <p class="text-justify px-5 mx-5 mb-5 ">
+                The boundless spread of misinformation can have quite contradictory aftermaths. It can spread hatred and
+                confusion amongst people and sometimes also cause riots in the countries. Fake news can mislead people
+                to a great extent. Fake news is nothing but a piece of false information that is often misleading and
+                generated with an intent to damage the reputation of a person or organization or to make money with
+                advertising revenue.
+                <br>
+                So we present "Fakebox" so that you can detect fake news with the help of artificial intelligence. We
+                are implementing a natural language processing algorithm to predict whether the text related to a piece
+                of news is fake or not.
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5 pt-5 " id="search">
+        <div class="SectionHeading text-center">
+            <h1>Enter the article</h1>
+        </div>
+        <div class="inputSection  text-center">
+            <form action="{{ url_for('predict')}}" method="POST"> 
+            <textarea class="mytextarea mt-4 mb-1" , ID='message' name="message" placeholder="Type or Paste your text here..."></textarea>
+            <input  type="submit" class="submitBtn" value="Submit">
+            </form>   
+            <br>
+            <br>
+            <div class="results">
+				{% if prediction == 1%}
+				<h1 style="color:red;font-family: Cambria;">Beware! It's a Fake News!!</h1>
+				{% elif prediction == 0%}
+				<h1 style="color:#011f1c;font-family: Cambria;">Good! It's a Real News!!</h1>
+				{% endif %}
+			</div>
+        </div>
+    </div>
+
+    <div class="container-fluid teambg mt-5 pt-5 pb-5" id="ourteam">
+        <div class="SectionHeading mb-5 text-center">
+            <h1>our team</h1>
+        </div>
+        <div class="card-deck px-4 pt-4 mb-5 text-center">
+            <div class="card align-items-center border-0">
+                <img class="card-img-top" src="static/images/priyankapd.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title mt-1">Priyanka Prasad</h5>
+                </div>
+            </div>
+            <div class="card align-items-center border-0">
+                <img class="card-img-top" src="static/images/shiv.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title mt-1">Shivam Mishra</h5>
+                </div>
+            </div>
+            <div class="card align-items-center border-0">
+                <img class="card-img-top " src="static/images/my22.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title mt-1">Priyanka Sodhi</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container-fluid tipsbg mt-5 pt-5 pb-5" id="tips">
+        <div class="SectionHeading text-center">
+            <h1>Some Extra Tips;)</h1>
+            <h2>How to spot a Fake news!</h2>
+        </div>
+        <div class="card-deck px-2 pt-4 mb-5 text-center">
+            <div class="card align-items-center">
+                <img class="card-img-top shake" src="static/images/icon1.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">SUPPORTING SOURCES</h5>
+                    <p>Click on links or check the official sources. Do they support the story?</p>
+                </div>
+            </div>
+            <div class="card align-items-center">
+                <img class="card-img-top shake" src="static/images/icon2.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">CONSIDER THE SOURCE</h5>
+                    <p>Is there an author? Check out the credentials on relevant issues.</p>
+                </div>
+            </div>
+            <div class="card align-items-center">
+                <img class="card-img-top shake" src="static/images/icon3.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">ASK THE EXPERTS</h5>
+                    <p>Ask a librarian, or consult a fact-checking site, official sources.</p>
+                </div>
+            </div>
+            <div class="card align-items-center">
+                <img class="card-img-top shake" src="static/images/icon4.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">READ BEYOND</h5>
+                    <p>Headlines can be outrageous. What's the whole story?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class=" text-center text-lg-start pt-5" style="background-color: rgba(0, 0, 0, 0.1)">
+
+        <div class="container p-4 footerText pb-5">
+            <h2>Have any Query?</h2>
+            <div class="row">
+                <div class="col-lg-2 col-md-6 col-sm-12 mb-md-0 text-center offset-lg-2 offset-md-3">
+                    <p><b>Contact us at</b><br><span class="font-italic myFooterSmall"><i class="fa fa-phone" aria-hidden="true"></i>&ensp;25478966</span>
+                    </p>
+                </div>
+
+                <div class="offset-md-3 col-lg-4 col-md-6 col-sm-12 mb-md-0 text-center querySection">
+                    <p><b>or write us at</b><br><span class="font-italic myFooterSmall"><i class="fa fa-envelope" aria-hidden="true"></i>&ensp;fakeboxinfo@gmail.com</span>
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2021 Copyright: <a href="#home">Fakebox</a><br>
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
